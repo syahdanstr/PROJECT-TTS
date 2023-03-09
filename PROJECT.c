@@ -134,7 +134,6 @@ int main() {
     char username_terlogin[MAX_USERNAME_LENGTH];
 
     do {
-             //gotoxy(100,25);
 
         if (login_berhasil) {
             printf("\n=== MENU HOTEL ===\n");
