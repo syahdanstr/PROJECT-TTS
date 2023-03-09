@@ -115,6 +115,14 @@ int cek_kamar(struct Kamar kamar[]){
     return find;
 }
 
+void developer(){
+    system ("cls");
+    printf("\n---Developer : ");
+    printf("\n Agustian Mahardika 672022177\n Dinda Ayu Ramadhani 672022285\n Lintang Satrio Gutomo 672022286\n Julios Gibral Ragananta 672022291\n Syahdan Satria Putra 672022311");
+    printf("\n Terimakasih sudah menggunakan program ini!\n");
+}
+
+
 int main() {
     system("cls");
     User users[MAX_USERS];
