@@ -133,8 +133,6 @@ int main() {
     char username_terlogin[MAX_USERNAME_LENGTH];
 
     do {
-             //gotoxy(100,25);
-
         if (login_berhasil) {
             printf("\n=== MENU HOTEL ===\n");
             printf("1. Logout\n");
@@ -144,8 +142,8 @@ int main() {
 
         } else {
             printf("\nSelamat Datang silahkan Login/Register\n");
-            printf("1. Register\n");
-            printf("2. Login\n");
+            printf("1. Login\n");
+            printf("2. Register\n");
         }
 
         printf("0. Keluar\n");
@@ -155,52 +153,7 @@ int main() {
 
         switch (pilihan_menu) {
 
-            case 1:
-                system("cls");
-                if (login_berhasil) {
-
-                    tampil_kamar(kamar);
-
-                    system("pause > null");
-                    system("cls");
-                }
-				else {
-                    char username[MAX_USERNAME_LENGTH];
-                    char password[MAX_PASSWORD_LENGTH];
-                    printf("\n=== REGISTER ===\n");
-                    printf("Username: ");
-                    scanf("%s", username);
-                    printf("Password: ");
-                    scanf("%s", password);
-                    if (user_count == MAX_USERS) {
-                        printf("Maaf, sudah mencapai batas jumlah user\n");
-                        system("pause > null");
-                        system("cls");
-                    } else {
-                        bool user_ada = false;
-                        int i;
-                        for (i = 0; i < user_count; i++) {
-                            if (strcmp(users[i].username, username) == 0) {
-                                user_ada = true;
-                                break;
-                            }
-                        }
-                        if (user_ada) {
-                            printf("Maaf, username sudah terdaftar\n");
-                            system("pause > null");
-                            system("cls");
-                        } else {
-                            strcpy(users[user_count].username, username);
-                            strcpy(users[user_count].password, password);
-                            user_count++;
-                            printf("Registrasi berhasil\n");
-                            system("pause > null");
-                            system("cls");
-                        }
-                    }
-                }
-                break;
-            case 2:
+           case 1:
                 system("cls");
                 if (login_berhasil) {
                     printf("Anda berhasil logout\n");
@@ -251,6 +204,51 @@ int main() {
                         printf("Maaf, username atau password salah\n");
                         system("pause > null");
                         system("cls");
+                    }
+                }
+                break;
+            case 1:
+                system("cls");
+                if (login_berhasil) {
+
+                    tampil_kamar(kamar);
+
+                    system("pause > null");
+                    system("cls");
+                }
+				else {
+                    char username[MAX_USERNAME_LENGTH];
+                    char password[MAX_PASSWORD_LENGTH];
+                    printf("\n=== REGISTER ===\n");
+                    printf("Username: ");
+                    scanf("%s", username);
+                    printf("Password: ");
+                    scanf("%s", password);
+                    if (user_count == MAX_USERS) {
+                        printf("Maaf, sudah mencapai batas jumlah user\n");
+                        system("pause > null");
+                        system("cls");
+                    } else {
+                        bool user_ada = false;
+                        int i;
+                        for (i = 0; i < user_count; i++) {
+                            if (strcmp(users[i].username, username) == 0) {
+                                user_ada = true;
+                                break;
+                            }
+                        }
+                        if (user_ada) {
+                            printf("Maaf, username sudah terdaftar\n");
+                            system("pause > null");
+                            system("cls");
+                        } else {
+                            strcpy(users[user_count].username, username);
+                            strcpy(users[user_count].password, password);
+                            user_count++;
+                            printf("Registrasi berhasil\n");
+                            system("pause > null");
+                            system("cls");
+                        }
                     }
                 }
                 break;
@@ -362,5 +360,3 @@ int main() {
 
     return 0;
 }
-
-
