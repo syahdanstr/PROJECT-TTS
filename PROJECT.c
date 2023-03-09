@@ -15,7 +15,39 @@ struct User {
     char username[MAX_USERNAME_LENGTH];
     char password[MAX_PASSWORD_LENGTH];
 };
+struct Kamar {
+    int nomor;
+    int harga;
+    int jumlah_inap;
+    bool kosong;
+    char nama_penginap[MAX_NAMA_LENGTH];
+};
+
 typedef struct User User;
+struct Kamar kamar[MAX_KAMAR];
+
+void gotoxy(int x, int y){
+  COORD coord;
+  coord.X = x;
+  coord.Y = y;
+  SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+    }
+
+void tampil_kamar(struct Kamar kamar[]) {
+    printf("\n=== DAFTAR KAMAR ===\n");
+    printf("Nomor\tStatus\tPenginap\n");
+
+    int i;
+    for (i = 0; i < MAX_KAMAR; i++) {
+        if (kamar[i].kosong) {
+            printf(" %-6d%-16s%-s\n", kamar[i].nomor, " Kosong", "-");
+        } else {
+            printf(" %-6d%-9s%-s\n", kamar[i].nomor, " Isi", kamar[i].nama_penginap);
+        }
+    }
+    system("pause > null");
+    system("cls");
+}
 
 int main() {
     system("cls");
