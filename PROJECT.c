@@ -89,6 +89,17 @@ void pemesanan(){
 		printf("Kamar tidak ada yang tersedia!");
 	}
 }
+
+int cek_kamar(struct Kamar kamar[]){
+	int i, find = 0;
+    for (i = 0; i < MAX_KAMAR; i++) {
+        if (kamar[i].kosong) {
+            find = 1;
+        }
+    }
+    return find;
+}
+
 int main() {
     system("cls");
     User users[MAX_USERS];
@@ -336,14 +347,4 @@ int main() {
     } while (pilihan_menu != 0);
 
     return 0;
-}
-
-int cek_kamar(struct Kamar kamar[]){
-	int i, find = 0;
-    for (i = 0; i < MAX_KAMAR; i++) {
-        if (kamar[i].kosong) {
-            find = 1;
-        }
-    }
-    return find;
 }
