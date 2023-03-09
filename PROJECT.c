@@ -15,6 +15,7 @@ struct User {
     char username[MAX_USERNAME_LENGTH];
     char password[MAX_PASSWORD_LENGTH];
 };
+typedef struct User User;
 
 int main() {
     system("cls");
