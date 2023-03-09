@@ -49,6 +49,46 @@ void tampil_kamar(struct Kamar kamar[]) {
     system("cls");
 }
 
+void pemesanan(){
+	if(cek_kamar(kamar) == 1){
+    	char nama[MAX_NAMA_LENGTH];
+    	int i, pilih_kamar, harga_kamar, jumlah_inap;
+		printf("\nKamar Tersedia!\n");
+    	printf("Nama Penginap : ");
+    	fflush(stdin);gets(nama);fflush(stdin); printf("\n");
+
+    	printf(" .:: Daftar Kamar ::. \n");
+    	for (i = 0; i < MAX_KAMAR; i++ ){
+    		if(kamar[i].kosong) {
+    			printf("%d. Kamar %d (Tersedia) \n", i+1, kamar[i].nomor);
+			} else {
+				printf("%d. Kamar %d (Tidak Tersedia) \n", i+1, kamar[i].nomor);
+			}
+		}
+		printf("Pilih No Kamar (1-10) : ");
+		scanf("%d", &pilih_kamar);
+		// cek ketersediaan
+		while(kamar[pilih_kamar-1].kosong == false){
+			printf("\n ! Kamar tersebut tidak tersedia ! \n");
+			printf("Pilih No Kamar (1-10) : ");
+			scanf("%d", &pilih_kamar);
+		}
+		printf("Jumlah Inap (hari) : ");
+		scanf("%d", &jumlah_inap);
+
+		strcpy(kamar[pilih_kamar-1].nama_penginap, nama);
+		kamar[pilih_kamar-1].kosong = false;
+		kamar[pilih_kamar-1].jumlah_inap = jumlah_inap;
+
+    	printf("\nTotal Harga Kamar %d, Jumlah Inap %d hari = Rp %d ", kamar[pilih_kamar-1].nomor, kamar[pilih_kamar-1].jumlah_inap, (kamar[pilih_kamar-1].harga * kamar[pilih_kamar-1].jumlah_inap));
+    	printf("\n-------------------\n");
+    	printf("Berhasil tambah data!");
+
+
+	} else {
+		printf("Kamar tidak ada yang tersedia!");
+	}
+}
 int main() {
     system("cls");
     User users[MAX_USERS];
