@@ -26,13 +26,6 @@ struct Kamar {
 typedef struct User User;
 struct Kamar kamar[MAX_KAMAR];
 
-void gotoxy(int x, int y){
-  COORD coord;
-  coord.X = x;
-  coord.Y = y;
-  SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-    }
-
 void tampil_kamar(struct Kamar kamar[]) {
     printf("\n=== DAFTAR KAMAR ===\n");
     printf("Nomor\tStatus\tPenginap\n");
