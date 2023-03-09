@@ -337,3 +337,13 @@ int main() {
 
     return 0;
 }
+
+int cek_kamar(struct Kamar kamar[]){
+	int i, find = 0;
+    for (i = 0; i < MAX_KAMAR; i++) {
+        if (kamar[i].kosong) {
+            find = 1;
+        }
+    }
+    return find;
+}
