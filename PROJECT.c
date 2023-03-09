@@ -133,6 +133,8 @@ int main() {
     char username_terlogin[MAX_USERNAME_LENGTH];
 
     do {
+             //gotoxy(100,25);
+
         if (login_berhasil) {
             printf("\n=== MENU HOTEL ===\n");
             printf("1. Logout\n");
@@ -207,7 +209,7 @@ int main() {
                     }
                 }
                 break;
-            case 1:
+            case 2:
                 system("cls");
                 if (login_berhasil) {
 
