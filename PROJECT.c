@@ -90,6 +90,21 @@ void pemesanan(){
 	}
 }
 
+void view_total(){
+	int i, total = 0;
+	printf(" .:: Daftar Kamar dan Total Harga Keseluruhan::. \n");
+	for (i = 0; i < MAX_KAMAR; i++ ){
+		printf("| No | Nomor Kamar | Nama Pelanggan | Harga per Malam | Jumlah Inap | Subtotal |\n");
+	    printf("|----|-------------|----------------|-----------------|-------------|----------|\n");
+	    for (i = 0; i < MAX_KAMAR; i++) {
+	        printf("| %2d | %11d | %-14s | %15d | %11d | %8d |\n", i+1, kamar[i].nomor, kamar[i].nama_penginap, kamar[i].harga, kamar[i].jumlah_inap, (kamar[i].harga *kamar[i].jumlah_inap));
+	   		total += (kamar[i].harga *kamar[i].jumlah_inap);
+	    }
+	}
+
+	printf("Total Harga Keseluruhan : %d \n", total);
+}
+
 int cek_kamar(struct Kamar kamar[]){
 	int i, find = 0;
     for (i = 0; i < MAX_KAMAR; i++) {
